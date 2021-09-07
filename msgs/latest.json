@@ -1,0 +1,7 @@
+{
+	"duration": "30s",
+	"messages": [
+	"检查完没有基本语法错误再点击运行，不要浪费服务器资源",
+	"Correct the errors before RUN"
+	]
+	}

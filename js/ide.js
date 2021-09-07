@@ -1,5 +1,9 @@
-var defaultUrl = localStorageGetItem("api-url") || "https://ce.judge0.com";
+var defaultUrl = localStorageGetItem("api-url") || "http://115.24.160.246:2358";
 var apiUrl = defaultUrl;
+var apiAuth = {
+    "x-rapidapi-host": "ns.scse.hebut.edu.cn",
+    "x-rapidapi-key": "ns.scse.hebut.edu.cn"
+};
 var wait = localStorageGetItem("wait") || false;
 var check_timeout = 300;
 
@@ -166,7 +170,7 @@ function showMessages() {
 
 function loadMessages() {
     $.ajax({
-        url: `https://minio.judge0.com/public/ide/messages.json?${Date.now()}`,
+        url: `/msgs/latest.json?${Date.now()}`,
         type: "GET",
         headers: {
             "Accept": "application/json"
