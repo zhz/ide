@@ -1,4 +1,4 @@
-var defaultUrl = localStorageGetItem("api-url") || "http://115.24.160.246:2358";
+var defaultUrl = localStorageGetItem("api-url") || "https://ns.scse.hebut.edu.cn/judger"; //"http://115.24.160.246:2358";
 var apiUrl = defaultUrl;
 var apiAuth = {
     "x-rapidapi-host": "ns.scse.hebut.edu.cn",
