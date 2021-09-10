@@ -539,7 +539,7 @@ $(document).ready(function () {
 
     $("body").keydown(function (e) {
         var keyCode = e.keyCode || e.which;
-        if (keyCode == 120) { // F9
+        if (keyCode == 120 || (e.ctrlKey && e.keyCode == 13)) { // F9 or Ctrl+Enter
             e.preventDefault();
             run();
         } else if (keyCode == 119) { // F8
@@ -557,11 +557,11 @@ $(document).ready(function () {
             wait = !wait;
             localStorageSetItem("wait", wait);
             alert(`Submission wait is ${wait ? "ON. Enjoy" : "OFF"}.`);
-        } else if (event.ctrlKey && keyCode == 107) { // Ctrl++
+        } else if (e.ctrlKey && e.altKey && keyCode == 107) { // Ctrl+Alt++
             e.preventDefault();
             fontSize += 1;
             editorsUpdateFontSize(fontSize);
-        } else if (event.ctrlKey && keyCode == 109) { // Ctrl+-
+        } else if (e.ctrlKey && e.altKey && keyCode == 109) { // Ctrl+Alt+-
             e.preventDefault();
             fontSize -= 1;
             editorsUpdateFontSize(fontSize);
@@ -590,7 +590,7 @@ $(document).ready(function () {
                 theme: "vs-dark",
                 scrollBeyondLastLine: true,
                 readOnly: state.readOnly,
-                language: "cpp",
+                language: "python",
                 minimap: {
                     enabled: false
                 }
