@@ -539,7 +539,7 @@ $(document).ready(function () {
 
     $("body").keydown(function (e) {
         var keyCode = e.keyCode || e.which;
-        if (keyCode == 120 || (e.ctrlKey && e.keyCode == 13)) { // F9 or Ctrl+Enter
+        if (keyCode == 120) { // F9
             e.preventDefault();
             run();
         } else if (keyCode == 119) { // F8
@@ -604,6 +604,18 @@ $(document).ready(function () {
             });
 
             sourceEditor.onDidLayoutChange(resizeEditor);
+
+            sourceEditor.addAction({
+                id: 'runthecode',
+                label: 'Run',
+                keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter],
+                contextMenuGroupId: 'navigation',
+                contextMenuOrder: 2.5,
+                run: function(ed) {
+                    run();
+                }
+            });
+
         });
 
         layout.registerComponent("stdin", function (container, state) {
